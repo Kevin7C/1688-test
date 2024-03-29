@@ -22,12 +22,13 @@ export const useTime=(time)=>{
     const [timeShow,setTimeShow] = useState<any>(()=>{
         return tool(time);
     })
-    useInterval(() => {
+    const clear = useInterval(() => {
 
         if(count.current>0){
             count.current--;
             setTimeShow(tool(count.current));
         }else{
+            clear();
             setTimeShow(null);
         }
 
